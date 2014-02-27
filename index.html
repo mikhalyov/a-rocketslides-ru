@@ -16,9 +16,9 @@
       <div class='wrap'>
         <div id='logo'></div>
         <nav>
-          <a class='active' href='#'>Портфолио</a>
-          <a href='#'>Технологии</a>
-          <a href='#'>Цены</a>
+          <a href='#portfolio'>Портфолио</a>
+          <a href='#result'>Технологии</a>
+          <a href='#services'>Цены</a>
         </nav>
         <div class='contact'>
           <div class='phone'>+7 499 123-45-46</div>
@@ -32,7 +32,7 @@
           <h1>Продающие презентации</h1>
           <h2>«Под ключ». Профессионально. В срок.</h2>
         </div>
-        <a class='order' href='#order-presentation'>Заказать презентацию</a>
+        <a class='order' href='#order-presentation' data-name='первая кнопка'>Заказать презентацию</a>
       </div>
     </div>
     <div id='info'>
@@ -105,7 +105,7 @@
           <input type='text' name='name' placeholder='Ваше имя'>
           <input type='email' name='email' placeholder='email@yourdomain.com'>
           <input type='text' name='phone' placeholder='+7 (___) ___-__-__'>
-          <input type='submit' value='Получить портфолио'>
+          <input type='submit' value='Получить портфолио' data-name='портфолио'>
           <p>
             или
             <a href='#order-call'>заказать звонок</a>
@@ -206,7 +206,7 @@
           <li class='selling'>
             <h3>Продающие презентации<br>и маркетинг-киты</h3>
             <h4>от <strong>25</strong> тыс. рублей</h4>
-            <a class='presentation' href='#order-presentation'>Заказать презентацию</a>
+            <a class='presentation' href='#order-presentation' data-name='продающие презентации'>Заказать презентацию</a>
             <p>
               или
               <a href='#order-call'>заказать звонок</a>
@@ -215,7 +215,7 @@
           <li class='public'>
             <h3>Презентации<br>для публичных выступлений</h3>
             <h4>от <strong>15</strong> тыс. рублей</h4>
-            <a class='presentation' href='#order-presentation'>Заказать презентацию</a>
+            <a class='presentation' href='#order-presentation' data-name='публичные выступления'>Заказать презентацию</a>
             <p>
               или
               <a href='#order-call'>заказать звонок</a>
@@ -224,7 +224,7 @@
           <li class='corporate'>
             <h3>Корпоративные шаблоны<br>презентаций</h3>
             <h4>от <strong>20</strong> тыс. рублей</h4>
-            <a class='presentation' href='#order-presentation'>Заказать презентацию</a>
+            <a class='presentation' href='#order-presentation' data-name='корпоративные шаблоны'>Заказать презентацию</a>
             <p>
               или
               <a href='#order-call'>заказать звонок</a>
@@ -233,7 +233,7 @@
           <li class='trainings'>
             <h3>Тренинги и мастер-классы<br>по мастерству презентаций</h3>
             <h4>от <strong>30</strong> тыс. рублей</h4>
-            <a class='presentation' href='#order-presentation'>Заказать презентацию</a>
+            <a class='presentation' href='#order-presentation' data-name='тренинги'>Заказать презентацию</a>
             <p>
               или
               <a href='#order-call'>заказать звонок</a>
@@ -246,10 +246,7 @@
     </div>
     <div id='team'>
       <div class='wrap'>
-        <h1>Команда</h1>
-        <p>К каждому нашему проекту подключается режисер презентаций,<br>методолог, копирайтер и дизайнер.</p>
-        <p>В процесс влюблен каждый участник команды,<br>поэтому и результат получается идеальным!</p>
-        <img src='images/team2.jpg'>
+        <h1>Контакты</h1>
         <div class='block'>
           <div class='info'>
             <div class='title'>На прямой связи с вами:</div>
@@ -268,7 +265,7 @@
             <input type='email' name='email' placeholder='email@yourdomain.com'>
             <input type='text' name='phone' placeholder='+7 (___) ___-__-__'>
             <textarea name='message' placeholder='Ваш вопрос или запрос на расчет стоимости'></textarea>
-            <input type='submit' value='Отправить вопрос'>
+            <input type='submit' value='Отправить вопрос' data-name='остались вопросы'>
           </form>
         </div>
       </div>

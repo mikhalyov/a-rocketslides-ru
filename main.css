@@ -100,7 +100,15 @@ input[type="text"],
 input[type="email"],
 textarea {
   font-family: "proxima-nova",sans-serif;
-  -webkit-font-smoothing: antialiased;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body,
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
 [type="submit"],
@@ -292,6 +300,8 @@ textarea[name="phone"]:-ms-input-placeholder {
   text-decoration: none;
   text-transform: uppercase;
   font-size: 12px;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
 }
 
 #header a:nth-of-type(n+2) {
