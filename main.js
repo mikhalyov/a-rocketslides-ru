@@ -26,8 +26,10 @@
     return false;
   });
 
-  $("#order .close").click(function() {
+  $("#order .close, #order .close-popup").click(function() {
     $("#order").removeClass("visible");
+    $("#order form").removeClass("submited").removeClass("submiting");
+    $("#order form")[0].reset();
     return false;
   });
 
@@ -85,8 +87,6 @@
       }
     };
     return Mandrill.messages.sendTemplate(params, function() {
-      alert("Запрос отправлен!");
-      $("#order").removeClass("visible");
       if (complete) {
         return complete();
       }
@@ -100,13 +100,18 @@
     email = $(this).find("[name='email']").val() || "";
     message = $(this).find("[name='message']").val() || "";
     button = $(this).find("[data-name]").data("name") || "";
+    $(this).addClass("submiting");
     sendMail({
       name: name,
       phone: phone,
       email: email,
       message: message,
       button: button
-    });
+    }, (function(_this) {
+      return function() {
+        return $(_this).removeClass("submiting").addClass("submited");
+      };
+    })(this));
     return false;
   });
 
