@@ -18,7 +18,7 @@
     return li.find(".person").css("background-image", "url(" + logoUrl + ")");
   });
 
-  $("a[href='#order-presentation']").click(function() {
+  $("[href='#order-presentation']").click(function() {
     var button;
     $("#order").addClass("visible");
     button = $(this).data("name");
@@ -26,10 +26,35 @@
     return false;
   });
 
-  $("#order .close, #order .close-popup").click(function() {
-    $("#order").removeClass("visible");
-    $("#order form").removeClass("submited").removeClass("submiting");
-    $("#order form")[0].reset();
+  $("[href='#order-call']").click(function() {
+    var button, left, scrollDelta, top;
+    $("#callme").addClass("visible");
+    top = $(this).offset().top + $(this).height() + 35 - window.scrollY;
+    left = $(this).offset().left + Math.ceil($(this).width() / 2);
+    $("#callme .inner").css({
+      top: top,
+      left: left - Math.ceil($("#callme .inner").width() / 2)
+    });
+    scrollDelta = $(window).height() - top - $("#callme .inner").height() - 12 - 35;
+    if (scrollDelta < 0) {
+      $("html, body").animate({
+        scrollTop: window.scrollY - scrollDelta
+      }, 400);
+      $("#callme .inner").animate({
+        top: top + scrollDelta
+      }, 400);
+    }
+    button = $(this).data("name");
+    $("#callme [type=submit]").attr("data-name", button).data("name", button);
+    return false;
+  });
+
+  $("#callme .close, #callme .close-popup, #order .close, #order .close-popup").click(function() {
+    var popup;
+    popup = $(this).parents("#callme, #order");
+    popup.removeClass("visible");
+    popup.find("form").removeClass("submited").removeClass("submiting");
+    popup.find("form")[0].reset();
     return false;
   });
 

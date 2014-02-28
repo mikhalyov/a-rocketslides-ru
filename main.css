@@ -116,7 +116,8 @@ textarea {
 #macbook .order,
 #improve .send,
 #services li .presentation,
-#order .close-popup {
+#order .close-popup,
+#callme .done .close-popup {
   display: inline-block;
   padding: 8px 14px;
   border: 1px solid #fda901;
@@ -143,7 +144,8 @@ textarea {
 #macbook .order:hover,
 #improve .send:hover,
 #services li .presentation:hover,
-#order .close-popup:hover {
+#order .close-popup:hover,
+#callme .done .close-popup:hover {
   background: -webkit-linear-gradient(bottom, #ffc000 0%, #ffea00 100%);
   background: linear-gradient(to top, #ffc000 0%, #ffea00 100%);
   border-color: #ffea00;
@@ -154,7 +156,8 @@ textarea {
 #macbook .order:active,
 #improve .send:active,
 #services li .presentation:active,
-#order .close-popup:active {
+#order .close-popup:active,
+#callme .done .close-popup:active {
   background: -webkit-linear-gradient(bottom, #ff9c00 0%, #dc8700 100%);
   background: linear-gradient(to top, #ff9c00 0%, #dc8700 100%);
   border-color: #dc8700;
@@ -1071,15 +1074,18 @@ textarea[name="phone"]:-ms-input-placeholder {
   line-height: 58px;
 }
 
-#order {
+#order,
+#callme {
   display: none;
 }
 
-#order.visible {
+#order.visible,
+#callme.visible {
   display: block;
 }
 
-#order .overlay {
+#order .overlay,
+#callme .overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -1107,8 +1113,8 @@ textarea[name="phone"]:-ms-input-placeholder {
   z-index: 300;
 }
 
-#order .inner {
-  width: 950px;
+#order .inner,
+#callme .inner {
   background: #fff;
   border-radius: 4px;
   box-shadow: 0 0 3px rgba(0,0,0,0.8);
@@ -1125,9 +1131,12 @@ textarea[name="phone"]:-ms-input-placeholder {
   -webkit-justify-content: stretch;
   justify-content: stretch;
   position: relative;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-#order .close {
+#order .close,
+#callme .close {
   position: absolute;
   right: 8px;
   top: 8px;
@@ -1138,14 +1147,17 @@ textarea[name="phone"]:-ms-input-placeholder {
   opacity: .3;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
   filter: alpha(opacity=30);
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
 }
 
-#order .close:hover {
+#order .close:hover,
+#callme .close:hover {
   opacity: .7;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
   filter: alpha(opacity=70);
+}
+
+#order .inner {
+  width: 950px;
 }
 
 #order .info {
@@ -1218,4 +1230,50 @@ textarea[name="phone"]:-ms-input-placeholder {
   margin-top: 36px;
   width: 250px;
   padding: 12px 16px;
+}
+
+#callme .close {
+  background-position: top right;
+  background-size: 50%;
+  right: 12px;
+  top: 12px;
+}
+
+#callme .inner {
+  position: absolute;
+  width: 296px;
+  padding: 24px 12px 12px 12px;
+  background: #e7e7e7;
+  text-align: center;
+}
+
+#callme .inner:before {
+  position: absolute;
+  top: -20px;
+  left: -webkit-calc(50% - 15px);
+  left: calc(50% - 15px);
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAUCAYAAABxnDbHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2dpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo3NTE5OUMxMzQ4OTlFMzExQkNERjlBQjkzQzNDNTU4MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpERTg1ODk2QTk4M0MxMUUzQTM4MTk4OEFGMERENTIwQSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpERTg1ODk2OTk4M0MxMUUzQTM4MTk4OEFGMERENTIwQSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozQTA4QjlDRjU4OUFFMzExODE4Nzk0NTYxOUVDRDBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3NTE5OUMxMzQ4OTlFMzExQkNERjlBQjkzQzNDNTU4MCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pq7h3+8AAAKZSURBVHjarJbPi1JRFMffe+rLHB1/TKXigDKgKVZWEOgmQRctGhe5kDaJLYaEAieajYsI0p3/gnshVMQ/wJVLV26EfuAiKRuKxjKnX5OdI+fF5fX0jeMc+PLue+/c83n3nnOPctzJjCedePIyEF42b8pcp8z9ylD0ERSE9kdBqmB+OBzOfelwOBCoIWkZacjlCPSb0RFpIVirAhQIIILOgPQ0luYh6CfoO+gHjadqK9YeE3gWZAStgQz1ej2Ffslk8gVcJqBvoLEsz3PBgkoedQRcB1lBFwqFwu1IJLKLgvE2PqN36+Sro7lz60VQWKXSCi2g86lU6kYmk9njeV5AwfgJPsN35GOkOSLFEFQLiSkcaYUm0AYGDQQC3mazWTCZTBY2wHg8PkgkEk97vd5ruN0HfQJ9BR2CfikVlqAA1FLRrNHX26xW62alUtmTA9GMRqMF34GPiz7QQnP1TKXz/0FlhSMBMUc22EZ7tVp9CD7uBZXuBp9H4Iv5tdFcA8XSyHMsMEBphQYJiNsKq7gfDAavqR148LmKvpRfOVjLgjUMUGSAuE32YrG4DcfiznF7qsfj2YJtPmy1Wm+ZRsE2jCnH5JAFzo5GNpu9mcvldgSwZZp5KBS6NJlM3nc6nX0ZVDq3Uw0lXKrUGTAWi10plUo5URT1y/6C4EeGw+HL3W73Zb/f/yJrj7P+zNP+S0C7y+Xagu15bjabz3Er2Gg0+hiPx58NBoM3cPsB9Fk6SgKbR1iZE1rc41WBaBijVqvtYkyqkX+FhVCz1AAajcYDt9vt5U7JMBbEzFJFbxDLgDm9iHksl8v3otFojDtlczqdm36/Xw/d7JWUW4Rez+fzt9Lp9N1V/oIsMp/P59XpdAftdvsdQv8KMACBVbw7AQKUygAAAABJRU5ErkJggg==");
+  display: block;
+  width: 29px;
+  height: 20px;
+  content: " ";
+  font-size: 1px;
+}
+
+#callme .inner input[type="text"] {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#callme .done h3 {
+  font-size: 16px !important;
+}
+
+#callme .done p {
+  font-size: 14px !important;
+}
+
+#callme .done .close-popup {
+  margin-top: 24px;
 }
