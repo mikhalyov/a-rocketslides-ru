@@ -27,15 +27,23 @@
   });
 
   $("[href='#order-call']").click(function() {
-    var button, left, scrollDelta, top;
+    var button, left, scrollDelta, top, width_2;
     $("#callme").addClass("visible");
     top = $(this).offset().top + $(this).height() + 35 - window.scrollY;
     left = $(this).offset().left + Math.ceil($(this).width() / 2);
+    width_2 = Math.ceil($("#callme .inner").width() / 2);
+    left = left - width_2;
+    if (left + 2 * width_2 > $(window).width() - 36) {
+      left = $(window).width() - width_2 * 2 - 36;
+    }
     $("#callme .inner").css({
       top: top,
-      left: left - Math.ceil($("#callme .inner").width() / 2)
+      left: left
     });
     scrollDelta = $(window).height() - top - $("#callme .inner").height() - 12 - 35;
+    if (/iPad/i.test(navigator.userAgent)) {
+      scrollDelta = scrollDelta - 350;
+    }
     if (scrollDelta < 0) {
       $("html, body").animate({
         scrollTop: window.scrollY - scrollDelta
