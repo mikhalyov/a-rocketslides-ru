@@ -23,7 +23,7 @@
     $("#order").addClass("visible");
     button = $(this).data("name");
     $("#order form h3").text($(this).text());
-    $("#order [type=submit]").attr("data-name", button).data("name", button);
+    $("#order [type=submit]").attr("data-name", button).data("name", button).data("event", $(this).data("event"));
     return false;
   });
 
@@ -54,7 +54,7 @@
       }, 400);
     }
     button = $(this).data("name");
-    $("#callme [type=submit]").attr("data-name", button).data("name", button);
+    $("#callme [type=submit]").attr("data-name", button).data("name", button).data("event", $(this).data("event"));
     return false;
   });
 
@@ -108,6 +108,21 @@
         }, {
           name: "button",
           content: button
+        }, {
+          name: "utm_source",
+          content: $.url().param("utm_source")
+        }, {
+          name: "utm_medium",
+          content: $.url().param("utm_medium")
+        }, {
+          name: "utm_term",
+          content: $.url().param("utm_term")
+        }, {
+          name: "utm_content",
+          content: $.url().param("utm_content")
+        }, {
+          name: "utm_campaign",
+          content: $.url().param("utm_campaign")
         }
       ],
       message: {
@@ -143,7 +158,16 @@
       button: button
     }, (function(_this) {
       return function() {
-        return $(_this).removeClass("submiting").addClass("submited");
+        var e, yandexEvent;
+        $(_this).removeClass("submiting").addClass("submited");
+        yandexEvent = $(_this).find("[type='submit']").data("event");
+        if (yandexEvent) {
+          try {
+            return yaCounter24179341.reachGoal(yandexEvent);
+          } catch (_error) {
+            e = _error;
+          }
+        }
       };
     })(this));
     return false;
@@ -168,5 +192,19 @@
       return $("#header").removeClass("small");
     }
   }));
+
+  $("input").each(function() {
+    if (this.getAttribute("required")) {
+      this.oninvalid = function(e) {
+        e.target.setCustomValidity("");
+        if (!e.target.validity.valid) {
+          return e.target.setCustomValidity("Обязательное поле");
+        }
+      };
+      return this.oninput = function(e) {
+        return e.target.setCustomValidity("");
+      };
+    }
+  });
 
 }).call(this);
