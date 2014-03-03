@@ -22,6 +22,7 @@
     var button;
     $("#order").addClass("visible");
     button = $(this).data("name");
+    $("#order form h3").text($(this).text());
     $("#order [type=submit]").attr("data-name", button).data("name", button);
     return false;
   });
