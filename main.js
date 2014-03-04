@@ -1,5 +1,16 @@
 (function() {
-  var Mandrill, sendMail;
+  var Mandrill, sendMail, trackGoal;
+
+  trackGoal = function(yandexGoal) {
+    var e;
+    if (yandexGoal) {
+      try {
+        return yaCounter24179341.reachGoal(yandexGoal);
+      } catch (_error) {
+        e = _error;
+      }
+    }
+  };
 
   $("#clients a").each(function() {
     var a, url;
@@ -24,6 +35,9 @@
     button = $(this).data("name");
     $("#order form h3").text($(this).text());
     $("#order [type=submit]").attr("data-name", button).data("name", button).data("event", $(this).data("event"));
+    if ($(this).data("event")) {
+      trackGoal("open-" + $(this).data("event"));
+    }
     return false;
   });
 
@@ -55,6 +69,9 @@
     }
     button = $(this).data("name");
     $("#callme [type=submit]").attr("data-name", button).data("name", button).data("event", $(this).data("event"));
+    if ($(this).data("event")) {
+      trackGoal("open-" + $(this).data("event"));
+    }
     return false;
   });
 
@@ -158,16 +175,8 @@
       button: button
     }, (function(_this) {
       return function() {
-        var e, yandexEvent;
         $(_this).removeClass("submiting").addClass("submited");
-        yandexEvent = $(_this).find("[type='submit']").data("event");
-        if (yandexEvent) {
-          try {
-            return yaCounter24179341.reachGoal(yandexEvent);
-          } catch (_error) {
-            e = _error;
-          }
-        }
+        return trackGoal($(_this).find("[type='submit']").data("event"));
       };
     })(this));
     return false;
