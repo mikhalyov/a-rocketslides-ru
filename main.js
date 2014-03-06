@@ -140,6 +140,30 @@
         }, {
           name: "utm_campaign",
           content: $.url().param("utm_campaign")
+        }, {
+          name: "type",
+          content: $.url().param("type")
+        }, {
+          name: "source",
+          content: $.url().param("source")
+        }, {
+          name: "block",
+          content: $.url().param("block")
+        }, {
+          name: "pos",
+          content: $.url().param("pos")
+        }, {
+          name: "key",
+          content: $.url().param("key")
+        }, {
+          name: "campaign",
+          content: $.url().param("campaign")
+        }, {
+          name: "ad",
+          content: $.url().param("ad")
+        }, {
+          name: "phrase",
+          content: $.url().param("phrase")
         }
       ],
       message: {
