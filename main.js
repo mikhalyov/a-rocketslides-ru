@@ -126,21 +126,6 @@
           name: "button",
           content: button
         }, {
-          name: "utm_source",
-          content: $.url().param("utm_source")
-        }, {
-          name: "utm_medium",
-          content: $.url().param("utm_medium")
-        }, {
-          name: "utm_term",
-          content: $.url().param("utm_term")
-        }, {
-          name: "utm_content",
-          content: $.url().param("utm_content")
-        }, {
-          name: "utm_campaign",
-          content: $.url().param("utm_campaign")
-        }, {
           name: "type",
           content: $.url().param("type")
         }, {
@@ -164,6 +149,21 @@
         }, {
           name: "phrase",
           content: $.url().param("phrase")
+        }, {
+          name: "utm_source",
+          content: $.url().param("utm_source")
+        }, {
+          name: "utm_medium",
+          content: $.url().param("utm_medium")
+        }, {
+          name: "utm_term",
+          content: $.url().param("utm_term")
+        }, {
+          name: "utm_content",
+          content: $.url().param("utm_content")
+        }, {
+          name: "utm_campaign",
+          content: $.url().param("utm_campaign")
         }
       ],
       message: {
